@@ -1,5 +1,6 @@
 import pandas as pd
 
+
 # NEW YORK
 
 original_ny_df = pd.read_csv("data/AB_NYC_2019.csv")
@@ -30,28 +31,5 @@ london_df['host_name'] = london_df['host_name'].fillna('Unknown')
 # print(ny_df[ny_df.duplicated()].sum())
 # nema duplikata
 
+# print(ny_df.info())
 
-
-
-
-# neighbourhood_groups = ny_df['neighbourhood_group'].value_counts()
-#
-# print(neighbourhood_groups)
-# # Make visualization.
-# data = [{
-#     'type': 'bar',
-#     'x': neighbourhood_groups.index,
-#     'y': neighbourhood_groups.values,
-#     'marker': {
-#         'color': 'rgb(60, 100, 150)',
-#         'line': {'width': 1.5, 'color': 'rgb(25, 25, 25)'}
-#     },
-# }]
-#
-# my_layout = {
-#     'title': 'New York Airbnb',
-#     'xaxis': {'title': 'Neighbourhood groups'},
-#     'yaxis': {'title': 'Frequency'},
-# }
-# fig = {'data': data, 'layout': my_layout}
-# offline.plot(fig, filename='')
