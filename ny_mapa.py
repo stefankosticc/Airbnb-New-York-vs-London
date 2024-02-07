@@ -1,52 +1,42 @@
 from pripremaPodataka import ny_df
 import matplotlib.pyplot as plt
-from matplotlib.colors import BoundaryNorm
 from PIL import Image
 
 lats = ny_df['latitude'].values
 lons = ny_df['longitude'].values
 
 slika = Image.open('data/New_York_City.png')
-# plt.imshow(slika, extent=(-74.258, -73.7, 40.49,40.92))
-#
-#
-# room_types = ny_df['room_type'].value_counts()
-#
-# colors = {
-#     'Entire home/apt': 'yellow',
-#     'Private room': 'blue',
-#     'Shared room': 'red'
-# }
-#
-# plt.scatter(lons, lats, c=ny_df['room_type'].map(colors), s=5)
-#
-# plt.show()
-#
-# # MAPA NASELJA
-# ny_naselja = ny_df['neighbourhood_group']
-# boje_naselja = {
-#     'Manhattan': 'red',
-#     'Brooklyn': 'blue',
-#     'Queens': 'yellow',
-#     'Bronx': 'green',
-#     'Staten Island': 'orange'
-# }
-#
-# plt.imshow(slika, extent=(-74.258, -73.7, 40.49,40.92))
-# plt.scatter(lons, lats, c=ny_naselja.map(boje_naselja), s=3)
-#
-# plt.show()
 
-# CENA
-ny_cena = ny_df['price'].values
+room_types = ny_df['room_type'].value_counts()
 
-boundaries = [0, 1000, 10000]
-norm = BoundaryNorm(boundaries, ncolors=256)
-plt.imshow(slika, extent=(-74.258, -73.7, 40.49, 40.92))
-plt.scatter(lons, lats, c=ny_cena, norm=norm, cmap=plt.get_cmap('RdYlGn').reversed(), alpha=0.75)
+colors = {
+    'Entire home/apt': 'yellow',
+    'Private room': 'blue',
+    'Shared room': 'red'
+}
 
-cbar = plt.colorbar()
-cbar.set_label('cena')
+fig, (grafik1, grafik2) = plt.subplots(1,2)
+
+grafik1.imshow(slika, extent=(-74.258, -73.7, 40.49,40.92))
+grafik1.scatter(lons, lats, c=ny_df['room_type'].map(colors), s=5)
+
+grafik2.pie(room_types.values, labels=room_types.index, autopct='%.0f%%', radius=0.8)
 
 plt.show()
+
+# MAPA NASELJA
+ny_naselja = ny_df['neighbourhood_group']
+boje_naselja = {
+    'Manhattan': 'red',
+    'Brooklyn': 'blue',
+    'Queens': 'yellow',
+    'Bronx': 'green',
+    'Staten Island': 'orange'
+}
+
+plt.imshow(slika, extent=(-74.258, -73.7, 40.49,40.92))
+plt.scatter(lons, lats, c=ny_naselja.map(boje_naselja), s=3)
+
+plt.show()
+
 

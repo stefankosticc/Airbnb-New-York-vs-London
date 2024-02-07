@@ -13,7 +13,7 @@ fig, ax = plt.subplots()
 ax.bar(x_values, y_values)
 
 # Set chart title and label axes.
-ax.set_title("Odnos cena i naselja", fontsize=24)
+ax.set_title("Prosečne cene po naselju", fontsize=24)
 ax.set_xlabel("Naselja", fontsize=14)
 ax.set_ylabel("Cene", fontsize=14)
 

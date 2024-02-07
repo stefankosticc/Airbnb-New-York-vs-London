@@ -17,6 +17,8 @@ data = [{
 my_layout = {
     'title': 'New York Broj Smeštaja Po Naselju',
     'yaxis': {'title': 'Frekvencija'},
+    # 'width': 700,
+    # 'height': 500
 }
 # fig = {'data': data, 'layout': my_layout}
 # offline.plot(fig, filename='ny_broj_po_naselju.html')
