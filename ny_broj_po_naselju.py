@@ -1,5 +1,6 @@
 from pripremaPodataka import ny_df
 from plotly import offline
+import plotly.graph_objs as go
 
 ny_naselja = ny_df['neighbourhood_group'].value_counts()
 
@@ -17,7 +18,11 @@ my_layout = {
     'title': 'New York Broj Smeštaja Po Naselju',
     'yaxis': {'title': 'Frekvencija'},
 }
-fig = {'data': data, 'layout': my_layout}
-offline.plot(fig, filename='ny_broj_po_naselju.html')
+# fig = {'data': data, 'layout': my_layout}
+# offline.plot(fig, filename='ny_broj_po_naselju.html')
+
+fig = go.Figure(data=data, layout=my_layout)
+
+fig.show()
 
 
