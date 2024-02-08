@@ -9,13 +9,13 @@ data = [{
     'x': ny_naselja.index,
     'y': ny_naselja.values,
     'marker': {
-        'color': 'rgb(60, 100, 150)',
-        'line': {'width': 1.5, 'color': 'rgb(25, 25, 25)'}
+        'color': 'navajowhite',
+        'line': {'width': 1.5, 'color': 'burlywood'}
     },
 }]
 
 my_layout = {
-    'title': 'New York Broj Smeštaja Po Naselju',
+    'title': 'New York: Broj Smeštaja Po Naselju',
     'yaxis': {'title': 'Frekvencija'},
     # 'width': 700,
     # 'height': 500

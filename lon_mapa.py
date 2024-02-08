@@ -7,14 +7,21 @@ lons = london_df['longitude'].values
 
 slika = Image.open('data/London_mapa.jpg')
 
-# MAPA NASELJA
-lon_naselja = london_df['neighbourhood'].value_counts().index
+room_types = london_df['room_type'].value_counts()
 
-# for i in range(0, len(lon_naselja)):
-#     lon_naselja[i] = i
+colors = {
+    'Entire home/apt': 'mediumseagreen',
+    'Private room': 'gold',
+    'Shared room': 'indigo',
+    'Hotel room': 'red'
+}
+plt.style.use('seaborn-v0_8-whitegrid')
+fig, (grafik1, grafik2) = plt.subplots(1, 2, figsize=(10, 4))
+fig.suptitle("London: Prikaz Tipova Soba", fontsize=18)
 
-print(lon_naselja[0])
-plt.imshow(slika, extent=(-0.54, 0.4, 51.25, 51.75))
-plt.scatter(lons, lats, c=lon_naselja, cmap='inferno', s=3)
+grafik1.imshow(slika, extent=(-0.54, 0.4, 51.25, 51.75))
+grafik1.scatter(lons, lats, c=london_df['room_type'].map(colors), s=5)
+
+grafik2.plot(room_types.index, room_types.values, 'o-r')
 
 plt.show()

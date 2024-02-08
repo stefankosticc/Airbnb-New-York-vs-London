@@ -1,20 +1,27 @@
 from pripremaPodataka import ny_df
-import matplotlib.pyplot as plt
+import plotly.graph_objs as go
 
 srednje_cene_po_naselju = ny_df.groupby('neighbourhood_group')['price'].mean()
 
 x_values = srednje_cene_po_naselju.index
 y_values = srednje_cene_po_naselju.values
 
-print(plt.style.available)
+data = [{
+    'type': 'bar',
+    'x': x_values,
+    'y': y_values,
+    'marker': {
+        'color': 'cornflowerblue',
+        'line': {'width': 1.5, 'color': 'royalblue'}
+    },
+}]
 
-plt.style.use('seaborn-v0_8-whitegrid')
-fig, ax = plt.subplots()
-ax.bar(x_values, y_values)
+my_layout = {
+    'title': 'New York: Prosečna Cena Po Naselju',
+    'yaxis': {'title': 'Cene'},
+    'width': 700,
+    'height': 500,
+}
 
-# Set chart title and label axes.
-ax.set_title("Prosečne cene po naselju", fontsize=24)
-ax.set_xlabel("Naselja", fontsize=14)
-ax.set_ylabel("Cene", fontsize=14)
-
-plt.show()
+fig = go.Figure(data=data, layout=my_layout)
+fig.show()
