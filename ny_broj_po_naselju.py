@@ -21,7 +21,7 @@ my_layout = {
     # 'height': 500
 }
 # fig = {'data': data, 'layout': my_layout}
-# offline.plot(fig, filename='ny_broj_po_naselju.html')
+# offline.plot(fig, filename='')
 
 fig = go.Figure(data=data, layout=my_layout)
 

@@ -28,7 +28,7 @@ london_df = original_london_df.drop(columns=['last_review', 'reviews_per_month',
 london_df['name'] = london_df['name'].fillna('Unknown')
 london_df['host_name'] = london_df['host_name'].fillna('Unknown')
 
-# print(ny_df[ny_df.duplicated()].sum())
+# print(london_df[london_df.duplicated()].sum())
 # nema duplikata
 
 # print(ny_df.info())
